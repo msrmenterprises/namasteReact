@@ -22,4 +22,9 @@
 - What makes react app performave 
 - what makes developer experience Better 
 - Learn for system Design 
+- what is Build Tool Like Parcel , WebPack 
+- What is Babel 
+
+#Setting Up Browser List 
+
 
