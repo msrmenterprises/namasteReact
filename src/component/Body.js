@@ -4,6 +4,7 @@ import { resData } from "../mockdata/restaurantData"
 import { API_URL } from "../utils/utils"
 const Body = () => {
    const[resData, setResData] = useState([]);
+   const[originalData,setOriginalData] = useState(resData)
 
     const fetchData = async () => {
         try {
@@ -13,6 +14,7 @@ const Body = () => {
             }
             const resDataObj = await response.json();
             setResData(resDataObj.data)
+            setOriginalData(resDataObj.data)
         } catch (error) {
             console.error("Fetch error:", error);
         }
@@ -30,8 +32,8 @@ const Body = () => {
     const handleSearch = (e) => {
         const searchText = e.target.value.trim().toLowerCase(); // Trim and convert to lowercase
     if (searchText === "") {
-        
-        setResData(resData); // Reset to the original data if input is cleared
+
+        setResData(originalData); // Reset to the original data if input is cleared
     } else {
         const updatedRes = resData.filter((res) =>
             res.name.toLowerCase().includes(searchText)
